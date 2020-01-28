@@ -6,6 +6,8 @@ function deepCopy(obj) {
 
   for (let key in obj) {
     console.log(typeof obj[key]);
+    //recursively copies objects within the object to ensure it is a deep copy 
+    //and not just pointing to the object within the original object.
     if (typeof obj[key] === 'object') {
       copiedObj[key] = deepCopy(obj[key]);
     } else {
