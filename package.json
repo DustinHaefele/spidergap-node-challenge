@@ -1,0 +1,26 @@
+{
+  "name": "spidergap-node-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DustinHaefele/spidergap-node-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DustinHaefele/spidergap-node-challenge/issues"
+  },
+  "homepage": "https://github.com/DustinHaefele/spidergap-node-challenge#readme",
+  "devDependencies": {
+    "mocha": "^7.0.1"
+  }
+}
