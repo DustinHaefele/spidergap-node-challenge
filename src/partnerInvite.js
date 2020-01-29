@@ -24,7 +24,7 @@ function findDistance(coordString) {
         Math.cos(Math.abs(partnerLong - londonLong))
   );
   
-  //Earths mean radius of 6371 times the center angle gives you the distance between the coordinate pairs
+  //Earth's mean radius of 6371 times the center angle gives you the distance between the coordinate pairs
   return centerAngle * 6371;
 }
 
