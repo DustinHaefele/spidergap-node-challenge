@@ -4,16 +4,18 @@ let data = fs.readFileSync('./partners.json');
 let partners = JSON.parse(data);
 
 function findDistance(coordString) {
-  const londLat = (51.515419 * Math.PI) / 180;
-  const londLong = (-0.141099 * Math.PI) / 180;
-  let coorArray = coordString.split(',').map(coor => parseFloat(coor));
-  const partnerLat = (coorArray[0] * Math.PI) / 180;
-  const partnerLong = (coorArray[1] * Math.PI) / 180;
+  const londonLat = (51.515419 * Math.PI) / 180;
+  const londonLong = (-0.141099 * Math.PI) / 180;
+
+  let coordArray = coordString.split(',').map(coor => parseFloat(coor));
+  const partnerLat = (coordArray[0] * Math.PI) / 180;
+  const partnerLong = (coordArray[1] * Math.PI) / 180;
+
   const centerAngle = Math.acos(
-    Math.sin(partnerLat) * Math.sin(londLat) +
+    Math.sin(partnerLat) * Math.sin(londonLat) +
       Math.cos(partnerLat) *
-        Math.cos(londLat) *
-        Math.cos(Math.abs(partnerLong - londLong))
+        Math.cos(londonLat) *
+        Math.cos(Math.abs(partnerLong - londonLong))
   );
 
   return centerAngle * 6371;
@@ -34,8 +36,10 @@ function findPartners(partnerArray) {
   invitedPartner.sort((a, b) => {
     if (a.companyName < b.companyName) {
       return -1;
-    } else {
+    } else if (a.companyName > b.companyName) {
       return 1;
+    } else {
+      return 0;
     }
   });
 
@@ -43,3 +47,8 @@ function findPartners(partnerArray) {
 }
 
 console.log(findPartners(partners));
+
+module.exports = {
+  findPartners,
+  findDistance
+};

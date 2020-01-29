@@ -8,9 +8,9 @@ function deepCopy(obj) {
     if (Array.isArray(obj[key])) {
       copiedObj[key] = [];
       obj[key].forEach(val => copiedObj[key].push(val));
-    //recursively copies objects within the object to ensure it is a deep copy
-    //and not just pointing to the object within the original object.
-    } else if (typeof obj[key] === 'object'){
+      //recursively copies objects within the object to ensure it is a deep copy
+      //and not just pointing to the object within the original object.
+    } else if (typeof obj[key] === 'object') {
       copiedObj[key] = deepCopy(obj[key]);
     } else {
       copiedObj[key] = obj[key];
@@ -33,7 +33,6 @@ testObj = {
   },
   g: () => 'goodbye'
 };
-
 
 module.exports = {
   deepCopy,

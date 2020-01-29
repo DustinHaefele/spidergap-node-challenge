@@ -6,15 +6,8 @@ describe('testing deep copy against object with all data types', () => {
   it('returns a copy of the object', () => {
     let obj = helper.testObjects[0];
     let copiedObj = copy.deepCopy(obj);
-    assert.equal(obj.string, copiedObj.string);
-    assert.equal(obj.number1, copiedObj.number1);
-    obj.array.forEach((val, idx) => {
-      assert.equal(val, copiedObj.array[idx]);
-    });
-    assert.equal(obj.obj.string2, copiedObj.obj.string2);
-    assert.equal(obj.obj.number2, copiedObj.obj.number2);
-    assert.equal(obj.obj.func1, copiedObj.obj.func1);
-    assert.equal(obj.func2, copiedObj.func2);
+
+    assert.deepEqual(obj, copiedObj);
   });
 
   it("copied object is it's own object and doesn't just point to original object", () => {
